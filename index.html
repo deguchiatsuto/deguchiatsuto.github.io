@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering SAT Grammar for Kikokushijo (Sample)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-blue: #003366;
+            --medium-blue: #00509e;
+            --light-blue-bg: #eef7ff;
+            --page-bg: #f0f2f5;
+            --text-color: #333;
+            --white: #ffffff;
+            --muted-red: #d9534f;
+            --light-red-bg: #fdf5f5;
+            --green: #5cb85c;
+            --light-green-bg: #f0fff0;
+            --yellow-accent: #ffc107;
+            --light-yellow-bg: #fffbe6;
+            --border-color: #ccc;
+            --easy-green: #28a745;
+            --medium-orange: #fd7e14;
+            --hard-red: #dc3545;
+        }
+
+        body {
+            font-family: 'Lato', 'Noto Sans JP', sans-serif;
+            background-color: var(--page-bg);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+     .presentation-container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+     .title-slide {
+            text-align: center;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 40px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+     .title-slide h1 {
+            font-size: 2.8em;
+            margin: 0;
+            color: var(--white);
+        }
+
+     .title-slide h2 {
+            font-size: 1.4em;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-top: 10px;
+            color: var(--white);
+        }
+
+     .slide {
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+            padding: 25px 40px;
+            overflow: hidden;
+            position: relative;
+        }
+
+     .slide h3 {
+            color: var(--dark-blue);
+            border-bottom: 2px solid var(--medium-blue);
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-size: 1.6em;
+        }
+        
+     .slide h4 {
+            color: var(--dark-blue);
+            margin-top: 0;
+        }
+
+     .slide p,.slide li {
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+
+     .slide ul {
+            padding-left: 20px;
+        }
+
+     .japanese-supplement {
+            font-size: 0.6em;
+            color: #666;
+            font-weight: normal;
+            display: block;
+            margin-top: 5px;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        
+     .japanese-inline {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.85em;
+            color: #555;
+        }
+
+        strong {
+            color: var(--dark-blue);
+        }
+        
+        code {
+            background-color: #e9e9e9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: var(--muted-red);
+        }
+
+     .pro-tip-box {
+            background-color: var(--light-yellow-bg);
+            border-left: 5px solid var(--yellow-accent);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+     .example-box {
+            background-color: var(--light-blue-bg);
+            border-left: 5px solid var(--medium-blue);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+     .correction-box {
+            background-color: #eaf7ea;
+            border-left: 5px solid var(--green);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+     .correction-box h4 {
+            margin-top: 0;
+            color: #3c763d;
+        }
+        
+     .correction-box p {
+            color: #3c763d;
+            margin-bottom: 0;
+        }
+        
+     .correction-box.explanation {
+            font-size: 1em;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed #a6d8a6;
+        }
+        
+     .incorrect-text {
+            color: var(--muted-red);
+            text-decoration: line-through;
+        }
+
+     .correct-text {
+            color: var(--green);
+            font-weight: bold;
+        }
+
+     .examples-heading {
+            margin-top: 40px;
+            margin-bottom: 10px;
+            color: var(--dark-blue);
+            font-size: 1.4em;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+     .section-header {
+            font-size: 32px;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--medium-blue);
+            color: var(--dark-blue);
+        }
+
+     .example-problem-container {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+     .problem-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap; 
+            gap: 10px;
+        }
+
+     .problem-header h4 {
+            margin: 0;
+            color: var(--medium-blue);
+            border-bottom: none; 
+            padding-bottom: 0;
+            flex-grow: 1; 
+        }
+
+     .difficulty-tag {
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 700;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+     .difficulty-tag.easy { background-color: var(--easy-green); }
+     .difficulty-tag.medium { background-color: var(--medium-orange); }
+     .difficulty-tag.hard { background-color: var(--hard-red); }
+
+     .problem-text {
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: #34495e;
+        }
+
+     .problem-text u {
+            text-decoration: underline;
+            text-decoration-color: var(--medium-blue);
+            text-decoration-thickness: 2px;
+        }
+
+     .answer-choices {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 10px;
+        }
+
+     .answer-btn {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background-color: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: left;
+            font-family: 'Lato', sans-serif;
+            font-size: 1.05em;
+            line-height: 1.7;
+            cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+        }
+
+     .answer-btn:hover:not(:disabled) {
+            background-color: var(--light-blue-bg);
+            border-color: var(--medium-blue);
+            transform: translateY(-2px);
+        }
+
+     .answer-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+     .btn-letter {
+            font-weight: 700;
+            color: var(--dark-blue);
+            background-color: var(--white);
+            border: 2px solid var(--dark-blue);
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-right: 15px;
+            margin-top: 1px;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+        }
+        
+     .btn-text {
+            color: var(--text-color);
+        }
+
+     .answer-btn.correct {
+            background-color: var(--light-green-bg);
+            border-color: var(--green);
+        }
+     .answer-btn.correct.btn-letter {
+            background-color: var(--green);
+            border-color: var(--green);
+            color: var(--white);
+        }
+
+     .answer-btn.incorrect {
+            background-color: var(--light-red-bg);
+            border-color: var(--muted-red);
+        }
+     .answer-btn.incorrect.btn-letter {
+            background-color: var(--muted-red);
+            border-color: var(--muted-red);
+            color: var(--white);
+        }
+        
+     .show-explanation-btn,.show-answer-btn {
+            background-color: var(--medium-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            padding: 10px 18px;
+            font-size: 0.95em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+            margin-top: 10px;
+        }
+
+     .show-explanation-btn:hover,.show-answer-btn:hover {
+            background-color: var(--dark-blue);
+            transform: translateY(-1px);
+        }
+
+     .explanation-content {
+            margin-top: 15px;
+            padding: 0 15px;
+            background-color: var(--light-yellow-bg);
+            border: 1px solid var(--yellow-accent);
+            border-radius: 8px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+        }
+        
+     .explanation-content.visible {
+            max-height: 1000px; /* A large value to allow content to expand */
+            padding: 15px;
+        }
+        
+     .answer-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+     .answer-content.visible {
+            max-height: 1000px; /* A large value */
+        }
+
+     .explanation-content h5 {
+            margin-top: 0;
+            color: var(--dark-blue);
+        }
+
+     .explanation-content p {
+            font-size: 1.0em;
+        }
+
+     .explanation-content ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+     .watermark {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            font-size: 0.75em;
+            color: #bbb;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+     .cta-button {
+            display: inline-block;
+            background-color: var(--yellow-accent);
+            color: var(--dark-blue);
+            padding: 15px 30px;
+            margin-top: 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1em;
+            text-decoration: none;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+     .cta-button:hover {
+            background-color: #ffca2c;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="presentation-container">
+        
+        <div class="slide" style="background-color: var(--light-blue-bg); border-color: var(--medium-blue);">
+            <h3 style="text-align: center; border-bottom: none;">SAT文法完全攻略ガイドへようこそ</h3>
+            <h4 style="text-align: center; font-weight: normal; margin-top: -10px;">帰国子女のための戦略的ガイド・プレビュー</h4>
+            <p style="text-align: center; max-width: 700px; margin: 20px auto 0 auto;">こちらは、デジタルSATライティングセクションを完全攻略するための全18ルールガイドのサンプルです。当塾独自のアプローチをご理解いただくため、代表的な3つのレッスンを抜粋しました。知識だけでなく、テストに対する真の戦略的理解を構築するために設計された、インタラクティブな問題セット、強力な「プロのヒント」、そして詳細な解説をご体験ください。高得点へと続く、論理的で段階的な道のりの一部をぜひお楽しみください。</p>
+        </div>
+
+     
+   <div class="slide">
+            <h3>2. Pronoun Clarity: Ensuring Every Pronoun Has a Clear Home <span class="japanese-supplement">代名詞の明確性：代名詞の指す対象を明確に</span></h3>
+            <p>A pronoun (like <code>it</code>, <code>they</code>, <code>he</code>, <code>its</code>, <code>their</code>) is a word that replaces a noun. The noun it replaces is called the <strong>antecedent</strong>. On the SAT, every pronoun must logically and grammatically agree with its antecedent in number (singular or plural). This is especially important for students accustomed to Japanese, where pronouns are often omitted if the context is clear. English, and especially the SAT, demands absolute clarity.</p>
+            <p>The most common error tested is <strong>ambiguity</strong>, where a pronoun could refer to more than one noun in the sentence, creating confusion. The correct answer will always be the one that is the most clear and unambiguous.</p>
+            <div class="example-box">
+                <p><strong>Incorrect Example:</strong> The researcher showed the lab assistant the new data, hoping that <span>he</span> would find it insightful.</p>
+            </div>
+            <button class="show-answer-btn" data-target="answer-2">Show Answer</button>
+            
+            <div class="answer-content" id="answer-2">
+                <div class="correction-box">
+                    <h4>Corrected Version</h4>
+                    <p>The researcher showed the new data to the lab assistant, hoping that the <span class="correct-text">assistant</span> would find it insightful.</p>
+                    <p class="explanation"><strong>Explanation:</strong> In the incorrect version, the pronoun "he" is ambiguous. Who is "he"? The researcher or the assistant? The SAT considers this a critical error. The corrected version removes the ambiguity by replacing the pronoun with the specific noun it was intended to represent.</p>
+                </div>
+            </div>
+            <div class="pro-tip-box">
+                <p><strong>Pro Tip: The "Point and Name" Test.</strong> When you see a pronoun in an SAT question, physically point to the single word in the sentence that it refers to (the antecedent). Say that noun out loud in place of the pronoun. If you can't point to one specific word, or if the sentence sounds illogical when you substitute the noun, you've found an error. The SAT demands absolute clarity.</p>
+            </div>
+            
+            <h3 class="examples-heading">Practice Problems</h3>
+            
+            <div class="example-problem-container">
+                <div class="problem-header">
+                    <h4>Practice Problem 2.1</h4>
+                    <span class="difficulty-tag easy">Easy</span>
+                </div>
+                <p class="problem-text">Although the new city regulations are strict, <u>it has</u> led to a significant decrease in traffic congestion.</p>
+                <div class="answer-choices">
+                    <button class="answer-btn" data-correct="false"><span class="btn-letter">A</span><span class="btn-text">NO CHANGE</span></button>
+                    <button class="answer-btn" data-correct="false"><span class="btn-letter">B</span><span class="btn-text">it have</span></button>
+                    <button class="answer-btn" data-correct="true"><span class="btn-letter">C</span><span class="btn-text">they have</span></button>
+                    <button class="answer-btn" data-correct="false"><span class="btn-letter">D</span><span class="btn-text">they has</span></button>
+                </div>
+                <button class="show-explanation-btn" data-target="explanation-2-1">Show Explanation</button>
+                <div class="explanation-content" id="explanation-2-1">
+                    <h5>Correct Answer: C</h5>
+                    <p><strong>Explanation:</strong> The pronoun in the sentence refers to its antecedent, "regulations." Since "regulations" is a plural noun, the pronoun replacing it must also be plural ("they"). The verb must also agree with the plural subject, so "have" is correct. "They have" is the only choice that is both grammatically and logically correct.</p>
+                    <ul>
+                        <li><strong>(A) it has:</strong> "It" is singular and cannot refer to the plural "regulations."</li>
+                        <li><strong>(B) it have:</strong> "It" is singular.</li>
+                        <li><strong>(D) they has:</strong> "They" is plural, but "has" is a singular verb.</li>
+                    </ul>
+                    <h5>Difficulty Justification</h5>
+                    <p>This question is rated **Easy** because it tests the most fundamental aspect of pronoun-antecedent agreement: number. The antecedent ("regulations") is clearly plural and located close to the pronoun, making the singular/plural mismatch straightforward to identify.</p>
+                </div>
+            </div>
+
+            <div class="example-problem-container">
+                <div class="problem-header">
+                    <h4>Practice Problem 2.2</h4>
+                    <span class="difficulty-tag hard">Hard</span>
+                </div>
+                <p class="problem-text">The committee argued with the council members about the new zoning laws, but <u>they</u> were ultimately unwilling to compromise.</p>
+                <div class="answer-choices">
+                    <button class="answer-btn" data-correct="false"><span class="btn-letter">A</span><span class="btn-text">NO CHANGE</span></button>
+                    <button class="answer-btn" data-correct="false"><span class="btn-letter">B</span><span class="btn-text">it was</span></button>
+                    <button class="answer-btn" data-correct="false"><span class="btn-letter">C</span><span class="btn-text">the laws</span></button>
+                    <button class="answer-btn" data-correct="true"><span class="btn-letter">D</span><span class="btn-text">the council members</span></button>
+                </div>
+                <button class="show-explanation-btn" data-target="explanation-2-2">Show Explanation</button>
+                <div class="explanation-content" id="explanation-2-2">
+                    <h5>Correct Answer: D</h5>
+                    <p><strong>Explanation:</strong> The pronoun "they" in the original sentence is ambiguous. It is unclear whether "they" refers to "the committee" or "the council members." The SAT requires absolute clarity. To fix this error, the ambiguous pronoun must be replaced with the specific noun it is intended to represent. While the context doesn't make it 100% certain who was unwilling to compromise, only one answer choice provides the necessary specificity to resolve the grammatical ambiguity. Option (D) clarifies the sentence's meaning by naming one of the groups.</p>
+                    <ul>
+                        <li><strong>(A) NO CHANGE:</strong> Leaves the ambiguity unresolved.</li>
+                        <li><strong>(B) it was:</strong> "It" is singular and cannot refer to either plural group.</li>
+                        <li><strong>(C) the laws:</strong> It is illogical for the laws themselves to be "unwilling to compromise."</li>
+                    </ul>
+                    <h5>Difficulty Justification</h5>
+                    <p>This question is rated **Hard** because the error is not a simple grammatical mistake like number agreement, but a logical flaw of ambiguity. The original sentence sounds correct to the casual reader. Identifying that the lack of clarity is itself the error, and then choosing the option that provides specificity, is a higher-order skill tested in more difficult questions.</p>
+                </div>
+            </div>
+            <div class="watermark">帰国コンパス &mdash; Sample Version</div>
+        </div>
+        
+        <div class="slide">
+            <h3>7. Punctuation Mastery: Colons (:) & Semicolons (;) <span class="japanese-supplement">句読点のマスター：コロンとセミコロン</span></h3>
+            <p>On the Digital SAT, colons and semicolons are not used for style; they follow strict grammatical rules. Both have one <strong>Golden Rule</strong>: the part of the sentence that comes <em>before</em> them must be a complete sentence (an independent clause). If you cannot place a period where the colon or semicolon is, the punctuation is incorrect.</p>
+            <ul>
+                <li><strong>Semicolon (;) = Period.</strong> A semicolon is used to connect two closely related complete sentences. For the SAT, you can treat it exactly like a period. If a period works, a semicolon works.</li>
+                <li><strong>Colon (:) = "Here's what I mean."</strong> A colon is used after a complete sentence to introduce a list, an explanation, or a quotation that elaborates on the first sentence. It signals to the reader: "And here is the specific information I was just talking about."</li>
+            </ul>
+            <div class="example-box">
+                <p><strong>Incorrect Example:</strong> The scientist needed equipment, such as<span>: beakers, a microscope, and slides.</span></p>
+            </div>
+            <button class="show-answer-btn" data-target="answer-7">Show Answer</button>
+    
+            <div class="answer-content" id="answer-7">
+                <div class="correction-box">
+                    <h4>Corrected Version</h4>
+                    <p>The scientist needed several pieces of equipment<span class="correct-text">: beakers, a microscope, and slides.</span></p>
+                    <p class="explanation"><strong>Explanation:</strong> In the incorrect version, the phrase "The scientist needed equipment, such as" is not a complete sentence, so it cannot be followed by a colon. The corrected version creates a complete sentence before the colon, satisfying the Golden Rule.</p>
+                </div>
+            </div>
+            <div class="pro-tip-box">
+                <p><strong>Pro Tip: The Period Test.</strong> When you see a colon or semicolon in the answer choices, check the clause before it. Can you replace the punctuation with a period and have a grammatically complete sentence? If YES, the colon/semicolon might be correct. If NO, it is 100% wrong. This single test will eliminate multiple answer choices instantly.</p>
+            </div>
+
+            <h3 class="examples-heading">Practice Problems</h3>
+
+            <div class="example-problem-container">
+                <div class="problem-header">
+                    <h4>Practice Problem 7.1</h4>
+                    <span class="difficulty-tag easy">Easy</span>
+                </div>
+                <p class="problem-text">The ancient library contained texts on a wide range of <u>subjects, including;</u> history, philosophy, and astronomy.</p>
+                <div class="answer-choices">
+                    <button class="answer-btn" data-correct="false"><span class="btn-letter">A</span><span class="btn-text">NO CHANGE</span></button>
+                    <button class="answer-btn" data-correct="false"><span class="btn-letter">B</span><span class="btn-text">subjects, including:</span></button>
+                    <button class="answer-btn" data-correct="false"><span class="btn-letter">C</span><span class="btn-text">subjects, including,</span></button>
+                    <button class="answer-btn" data-correct="true"><span class="btn-letter">D</span><span class="btn-text">subjects:</span></button>
+                </div>
+                <button class="show-explanation-btn" data-target="explanation-7-1">Show Explanation</button>
+                <div class="explanation-content" id="explanation-7-1">
+                    <h5>Correct Answer: D</h5>
+                    <p><strong>Explanation:</strong> The clause "The ancient library contained texts on a wide range of subjects" is a complete sentence (an independent clause). A colon is the correct punctuation to use after a complete sentence to introduce a list of examples. The other options introduce punctuation errors.</p>
+                    <ul>
+                        <li><strong>(A) and (B):</strong> It is always incorrect to place a semicolon or colon after an introductory phrase like "including" or "such as." The phrase before the punctuation must be a complete sentence on its own.</li>
+                        <li><strong>(C):</strong> This option is grammatically incorrect and does not properly set up the list.</li>
+                    </ul>
+                    <h5>Difficulty Justification</h5>
+                    <p>This question is rated **Easy** because it tests a classic SAT rule: using a colon to introduce a list. The independent clause is simple to identify, and the incorrect use of punctuation after "including" is a common trap that well-prepared students can easily spot.</p>
+                </div>
+            </div>
+            
+            <div class="example-problem-container">
+                <div class="problem-header">
+                    <h4>Practice Problem 7.2</h4>
+                    <span class="difficulty-tag hard">Hard</span>
+                </div>
+                <p class="problem-text">The results of the experiment were <u>inconclusive, the data did not support the initial hypothesis, nor</u> did it suggest an alternative.</p>
+                <div class="answer-choices">
+                    <button class="answer-btn" data-correct="false"><span class="btn-letter">A</span><span class="btn-text">NO CHANGE</span></button>
+                    <button class="answer-btn" data-correct="true"><span class="btn-letter">B</span><span class="btn-text">inconclusive; the data did not support the initial hypothesis, nor</span></button>
+                    <button class="answer-btn" data-correct="false"><span class="btn-letter">C</span><span class="btn-text">inconclusive, the data did not support the initial hypothesis; nor</span></button>
+                    <button class="answer-btn" data-correct="false"><span class="btn-letter">D</span><span class="btn-text">inconclusive: the data did not support the initial hypothesis, nor,</span></button>
+                </div>
+                <button class="show-explanation-btn" data-target="explanation-7-2">Show Explanation</button>
+                <div class="explanation-content" id="explanation-7-2">
+                    <h5>Correct Answer: B</h5>
+                    <p><strong>Explanation:</strong> The original sentence contains a "comma splice," which is a common SAT error. A comma splice occurs when two complete sentences (independent clauses) are joined together with only a comma. <br>• Clause 1: "The results of the experiment were inconclusive" <br>• Clause 2: "the data did not support the initial hypothesis, nor did it suggest an alternative" <br>Since both are complete sentences, they must be separated by a period, a comma + FANBOYS conjunction, or a semicolon. A semicolon is the perfect tool here to connect two closely related complete ideas.</p>
+                    <ul>
+                        <li><strong>(A) NO CHANGE:</strong> This is a comma splice.</li>
+                        <li><strong>(C) and (D):</strong> These options misuse semicolons and colons, creating new grammatical errors.</li>
+                    </ul>
+                    <h5>Difficulty Justification</h5>
+                    <p>This question is rated **Hard** because it requires the test-taker to first identify the subtle comma splice error in a complex sentence. Recognizing that "the data did not support..." begins a new independent clause is the key step. Many students will read past this error. The correct answer requires a precise application of the rule that a semicolon can function like a period to separate two complete thoughts.</p>
+                </div>
+            </div>
+            <div class="watermark">帰国コンパス &mdash; Sample Version</div>
+        </div>
+
+        <div class="slide">
+            <h3>14. Crafting Logical Transitions: Building a Coherent Argument <span class="japanese-supplement">論理的な移行表現：一貫性のある議論の構築</span></h3>
+            <p>Transition words and phrases (like <code>However</code>, <code>Therefore</code>, <code>For example</code>) are the logical glue that connects ideas. They act as signposts, telling the reader how one sentence relates to the next. On the SAT, choosing the correct transition is a test of pure logic, not vocabulary.</p>
+            <p>Your task is to read the sentences <em>before</em> and <em>after</em> the transition. Then, determine the relationship between them. Is the second sentence providing an example? A contrasting point? A result? Once you know the relationship, you can find the word that matches.</p>
+            
+            <h4 style="margin-top: 25px; color: var(--medium-blue);">Common SAT Transition Functions:</h4>
+            <ul>
+                <li><strong>Addition / Continuation:</strong> The second sentence adds a similar idea. (<code>Furthermore</code>, <code>Moreover</code>, <code>In addition</code>)</li>
+                <li><strong>Contrast / Contradiction:</strong> The second sentence presents an opposing idea. (<code>However</code>, <code>Nevertheless</code>, <code>In contrast</code>)</li>
+                <li><strong>Cause and Effect:</strong> The second sentence is a result of the first. (<code>Therefore</code>, <code>Consequently</code>, <code>As a result</code>)</li>
+                <li><strong>Example / Emphasis:</strong> The second sentence gives a specific case or emphasizes a point. (<code>For example</code>, <code>In fact</code>, <code>Indeed</code>)</li>
+            </ul>
+
+            <div class="pro-tip-box">
+                <p><strong>Pro Tip: Define the Relationship First.</strong> Cover the answer choices and read the sentences surrounding the blank. In your own words, state the connection. For example, say "This is a cause, and that is the effect." Then, uncover the choices and find the word that means 'cause and effect' (like <code>Therefore</code>). Don't let the answer choices confuse you before you've analyzed the logic.</p>
+            </div>
+
+            <h3 class="examples-heading">Practice Problems</h3>
+
+            <div class="example-problem-container">
+                <div class="problem-header">
+                    <h4>Practice Problem 14.1</h4>
+                    <span class="difficulty-tag easy">Easy</span>
+                </div>
+                <p class="problem-text">The company invested heavily in new marketing campaigns. ____, its quarterly sales increased by over 50 percent.</p>
+                <div class="answer-choices">
+                    <button class="answer-btn" data-correct="false"><span class="btn-letter">A</span><span class="btn-text">Nevertheless</span></button>
+                    <button class="answer-btn" data-correct="false"><span class="btn-letter">B</span><span class="btn-text">For example</span></button>
+                    <button class="answer-btn" data-correct="true"><span class="btn-letter">C</span><span class="btn-text">Consequently</span></button>
+                    <button class="answer-btn" data-correct="false"><span class="btn-letter">D</span><span class="btn-text">Similarly</span></button>
+                </div>
+                <button class="show-explanation-btn" data-target="explanation-14-1">Show Explanation</button>
+                <div class="explanation-content" id="explanation-14-1">
+                    <h5>Correct Answer: C</h5>
+                    <p><strong>Explanation:</strong> To determine the correct transition, we must analyze the logical relationship between the two sentences. The first sentence states a cause (heavy investment in marketing). The second sentence states the effect of that action (a significant increase in sales). The word "Consequently" correctly signals this cause-and-effect relationship.</p>
+                    <ul>
+                        <li><strong>(A) Nevertheless:</strong> Signals a contrast, which is not present here.</li>
+                        <li><strong>(B) For example:</strong> Signals an example, but increased sales are a result, not an example, of the investment.</li>
+                        <li><strong>(D) Similarly:</strong> Signals a comparison, but the sentences describe a cause and its effect.</li>
+                    </ul>
+                    <h5>Difficulty Justification</h5>
+                    <p>This question is rated **Easy** because the cause-and-effect relationship between the two sentences is direct and unambiguous. This makes it a straightforward application of the core strategy for transition questions.</p>
+                </div>
+            </div>
+            <div class="example-problem-container">
+                <div class="problem-header">
+                    <h4>Practice Problem 14.2</h4>
+                    <span class="difficulty-tag hard">Hard</span>
+                </div>
+                <p class="problem-text">Many critics argue that the novel's plot is derivative and uninspired. ____, the book has remained on the bestseller list for over a year, praised by readers for its emotional depth.</p>
+                <div class="answer-choices">
+                    <button class="answer-btn" data-correct="false"><span class="btn-letter">A</span><span class="btn-text">Indeed</span></button>
+                    <button class="answer-btn" data-correct="false"><span class="btn-letter">B</span><span class="btn-text">Therefore</span></button>
+                    <button class="answer-btn" data-correct="false"><span class="btn-letter">C</span><span class="btn-text">Furthermore</span></button>
+                    <button class="answer-btn" data-correct="true"><span class="btn-letter">D</span><span class="btn-text">Nevertheless</span></button>
+                </div>
+                <button class="show-explanation-btn" data-target="explanation-14-2">Show Explanation</button>
+                <div class="explanation-content" id="explanation-14-2">
+                    <h5>Correct Answer: D</h5>
+                    <p><strong>Explanation:</strong> The logical relationship here is one of contrast or concession. The first sentence presents a negative viewpoint (critics' disapproval). The second sentence presents a contrasting positive outcome (commercial and popular success). "Nevertheless" is the ideal transition to signal this kind of unexpected result that occurs in spite of the preceding point. It essentially means "despite what was just said."</p>
+                    <ul>
+                        <li><strong>(A) Indeed:</strong> Used for emphasis, which would illogically suggest the book's success supports the critics' negative view.</li>
+                        <li><strong>(B) Therefore:</strong> Signals a result, which is the opposite of the relationship here.</li>
+                        <li><strong>(C) Furthermore:</strong> Adds a similar point, which is also incorrect.</li>
+                    </ul>
+                    <h5>Difficulty Justification</h5>
+                    <p>This question is rated **Hard** because the relationship is a nuanced form of contrast. Test-takers must understand that "Nevertheless" is used when a second point is true *despite* the first point being true. The other distractors are tempting if one only focuses on the second sentence (the book's success) without seeing its direct contradiction with the first sentence (the critics' opinion).</p>
+                </div>
+            </div>
+            <div class="watermark">帰国コンパス &mdash; Sample Version</div>
+        </div>
+        
+        <div class="slide" style="text-align: center;">
+            <h3>Your Path to Mastery Continues</h3>
+            <p>これで、帰国コンパスの「SAT文法完全攻略ガイド」を特徴づける、明確さと戦略的深度の一端を体験していただけたことと思います。このサンプルでは、高得点に必須の18ルールのうち3つを取り上げました。完全版ガイドでは、この基礎の上に、論理比較、並列構造、移行論理といった高度なトピックも、同様の詳細さで解説しています。</p>
+            <p style="font-size: 1.2em; font-weight: 700; color: var(--dark-blue); margin-top: 30px;">全18ルールをマスターする準備はできましたか？</p>
+            <p>完全版ガイドをアンロックし、全セクション、数十問に及ぶ追加練習問題、そして完全な戦略的フレームワークを手に入れましょう。</p>
+            
+            <a href="https://kikokucompass.com/book-initial-session" target="_blank" rel="noopener noreferrer" class="cta-button">初回セッションを予約する</a>
+            <p style="margin-top: 25px; font-size: 0.9em;">ご質問はございますか？個別指導に関するお問い合わせは帰国コンパスまでご連絡ください。</p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.presentation-container');
+
+            container.addEventListener('click', function(event) {
+                // Handle "Show/Hide Explanation" button clicks
+                const explanationBtn = event.target.closest('.show-explanation-btn');
+                if (explanationBtn) {
+                    const targetId = explanationBtn.dataset.target;
+                    const explanationContent = document.getElementById(targetId);
+                    if (explanationContent) {
+                        explanationContent.classList.toggle('visible');
+                        if (explanationContent.classList.contains('visible')) {
+                            explanationBtn.textContent = 'Hide Explanation';
+                        } else {
+                            explanationBtn.textContent = 'Show Explanation';
+                        }
+                    }
+                    return; // Stop further processing
+                }
+
+                // Handle "Show/Hide Answer" button clicks
+                const showAnswerBtn = event.target.closest('.show-answer-btn');
+                if (showAnswerBtn) {
+                    const targetId = showAnswerBtn.dataset.target;
+                    const answerContent = document.getElementById(targetId);
+                    if (answerContent) {
+                        answerContent.classList.toggle('visible');
+                        if (answerContent.classList.contains('visible')) {
+                            showAnswerBtn.textContent = 'Hide Answer';
+                        } else {
+                            showAnswerBtn.textContent = 'Show Answer';
+                        }
+                    }
+                    return; // Stop further processing
+                }
+
+                // Handle answer button clicks
+                const answerBtn = event.target.closest('.answer-btn');
+                if (answerBtn &&!answerBtn.disabled) {
+                    const isCorrect = answerBtn.dataset.correct === 'true';
+                    const choicesContainer = answerBtn.closest('.answer-choices');
+
+                    if (isCorrect) {
+                        answerBtn.classList.add('correct');
+                        const letter = answerBtn.querySelector('.btn-letter');
+                        if (letter) letter.classList.add('correct');
+                    } else {
+                        answerBtn.classList.add('incorrect');
+                        const letter = answerBtn.querySelector('.btn-letter');
+                        if (letter) letter.classList.add('incorrect');
+                        // Find and highlight the correct answer
+                        const correctBtn = choicesContainer.querySelector('.answer-btn[data-correct="true"]');
+                        if (correctBtn) {
+                            correctBtn.classList.add('correct');
+                            const correctLetter = correctBtn.querySelector('.btn-letter');
+                            if (correctLetter) correctLetter.classList.add('correct');
+                        }
+                    }
+
+                    // Disable all buttons in this question
+                    const allButtons = choicesContainer.querySelectorAll('.answer-btn');
+                    allButtons.forEach(btn => {
+                        btn.disabled = true;
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
